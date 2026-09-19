@@ -1,0 +1,657 @@
+/* ============================================================
+   神社アプリ Instagram カルーセル - 共通デザインシステム
+   全投稿・全スライドで読み込む共通CSS。
+   配色やフォントを変えたい場合はこのファイルの :root を編集する。
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap');
+
+:root {
+  /* --- カラー ------------------------------------------------ */
+  --bg: #F7F1E4;              /* 和紙のようなクリーム */
+  --bg-panel: #FFFDF7;         /* カード・パネル背景（少し明るい） */
+  --bg-panel-alt: #EFE6D2;     /* カード背景（少し濃い） */
+  --ink: #2B2620;              /* 本文・見出し（墨色） */
+  --ink-soft: #6B6153;         /* 補助テキスト */
+  --ink-faint: #9C9182;        /* さらに薄いテキスト・キャプション */
+  --line-gold: #B08A3E;        /* 金線・アクセントライン */
+  --line-gold-soft: #D9C79C;   /* 薄い金線・枠線 */
+  --accent-vermillion: #9C3B30;/* 朱色（使用は控えめに） */
+  --navy: #263449;             /* 深紺（アクセント・CTA） */
+  --white: #FFFFFF;
+
+  /* --- フォント ------------------------------------------------ */
+  --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+
+  /* --- サイズ ------------------------------------------------ */
+  --slide-w: 1080px;
+  --slide-h: 1350px;
+  --pad-x: 96px;
+  --frame-inset: 52px;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #DDD6C6; /* 作業中にキャンバスの外周が分かるようグレーがかった背景 */
+  font-family: var(--font-sans);
+}
+
+/* ============================================================
+   スライド共通土台（1080 x 1350）
+   ============================================================ */
+
+.slide {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* 内側の細い金線フレーム（上品さ・和のテイストを出す） */
+.slide-frame {
+  position: absolute;
+  inset: var(--frame-inset);
+  border: 1px solid var(--line-gold-soft);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* うっすらとした和紙のテクスチャ風グラデーション */
+.slide-texture {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(176, 138, 62, 0.07), transparent 40%),
+    radial-gradient(circle at 90% 95%, rgba(38, 52, 73, 0.06), transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   キッカー（各スライド上部の小ラベル）
+   ============================================================ */
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 22px;
+  letter-spacing: 0.14em;
+  color: var(--line-gold);
+  font-weight: 700;
+}
+
+.kicker::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--line-gold);
+  transform: rotate(45deg);
+}
+
+/* ============================================================
+   見出し・本文
+   ============================================================ */
+
+.title-main {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.45;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.title-sub {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.gold-rule {
+  width: 72px;
+  height: 3px;
+  background: var(--line-gold);
+  margin: 28px 0;
+}
+
+.gold-rule.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.body-text {
+  font-family: var(--font-sans);
+  color: var(--ink-soft);
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+/* ============================================================
+   ページインジケーター（右下 01 / 04）
+   ============================================================ */
+
+.page-indicator {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: 64px;
+  z-index: 3;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.page-indicator .current {
+  color: var(--line-gold);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* ============================================================
+   フッターブランド（左下 ロゴ + アプリ名）
+   ============================================================ */
+
+.footer-brand {
+  position: absolute;
+  left: var(--pad-x);
+  bottom: 60px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-brand .mark {
+  width: 34px;
+  height: 34px;
+  color: var(--navy);
+}
+
+.footer-brand .name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.footer-brand .name span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   リスト項目（神社リスト・特徴リストなどで使用）
+   ============================================================ */
+
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.item-row + .item-row {
+  margin-top: 36px;
+}
+
+.item-number {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--line-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--line-gold);
+  font-weight: 700;
+}
+
+.item-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.item-desc {
+  font-family: var(--font-sans);
+  font-size: 21px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* ============================================================
+   カード / パネル
+   ============================================================ */
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--line-gold-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(43, 38, 32, 0.06);
+}
+
+/* ============================================================
+   CTAボタン風ラベル
+   ============================================================ */
+
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 40px;
+  border: 1.5px solid var(--navy);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   画像プレースホルダー（後で実写真・スクリーンショットに差し替え）
+   img の src が見つからない場合、自動でプレースホルダー表示になる
+   ============================================================ */
+
+.image-slot {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #EFE6D2 0%, #E6DAC0 100%);
+  border: 1px solid var(--line-gold-soft);
+}
+
+.image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-slot .placeholder-label {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-faint);
+  letter-spacing: 0.03em;
+}
+
+.image-slot .placeholder-label .ph-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  opacity: 0.5;
+}
+
+.image-slot.img-missing img {
+  display: none;
+}
+
+.image-slot.img-missing .placeholder-label {
+  display: flex;
+}
+
+/* ============================================================
+   背景の装飾モチーフ（鳥居のシルエット・薄い金色）
+   表紙・CTAスライドの右下などに配置する
+   ============================================================ */
+
+.bg-motif {
+  position: absolute;
+  right: -90px;
+  bottom: -70px;
+  width: 560px;
+  height: 560px;
+  color: var(--line-gold);
+  opacity: 0.10;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ============================================================
+   レイアウト用ユーティリティ
+   ============================================================ */
+
+.pad-block {
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+.grow {
+  flex: 1 1 auto;
+}
+
+.title-main.size-cover {
+  font-size: 76px;
+}
+
+.title-main.size-heading {
+  font-size: 50px;
+}
+
+.title-sub.size-cover {
+  font-size: 27px;
+}
+
+.title-sub.size-body {
+  font-size: 24px;
+}
+
+.swipe-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.swipe-hint .arrow {
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--ink-faint);
+  position: relative;
+}
+
+.swipe-hint .arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--ink-faint);
+  border-right: 1px solid var(--ink-faint);
+  transform: rotate(45deg);
+}
+
+.note-box {
+  border-left: 3px solid var(--line-gold);
+  padding: 4px 0 4px 26px;
+}
+
+/* スマホ画面モックアップ（電子御朱印アプリのスクリーンショット用） */
+
+.phone-mock {
+  position: relative;
+  width: 420px;
+  border-radius: 44px;
+  background: var(--navy);
+  padding: 16px;
+  box-shadow: 0 30px 60px rgba(38, 52, 73, 0.25);
+}
+
+.phone-mock .phone-notch {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 22px;
+  background: var(--navy);
+  border-radius: 0 0 16px 16px;
+  z-index: 2;
+}
+
+.phone-mock .phone-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--bg-panel);
+}
+
+.phone-mock .phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+}
+
+/* ============================================================
+   実機スクリーンショット用の汎用カード
+   （地図・検索結果・詳細ページなど、実際のアプリ画面をそのまま見せる）
+   ============================================================ */
+
+.screenshot-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-panel);
+  border: 1px solid var(--line-gold-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 44px rgba(43, 38, 32, 0.10);
+}
+
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* 「実際のアプリ画面」であることを示す小さなラベル */
+
+.source-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink-faint);
+}
+
+.source-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line-gold);
+  flex: none;
+}
+
+/* ============================================================
+   開発中バッジ（正直さを伝えるための小さなラベル）
+   ============================================================ */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--line-gold);
+  letter-spacing: 0.04em;
+}
+
+.status-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-gold);
+}
+
+.dev-note {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  color: var(--ink-faint);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   約束パネル（投稿②4枚目：安心材料を「言い訳」でなく
+   「基本姿勢」として見せるための強調パネル）
+   ============================================================ */
+
+.promise-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--bg-panel);
+  border: 1.5px solid var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+}
+
+.promise-panel .promise-icon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  color: var(--navy);
+  margin-top: 2px;
+}
+
+.promise-panel .promise-text {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.5;
+  white-space: pre-line;
+  margin: 0;
+}
+
+/* ============================================================
+   価値観ステートメント（投稿②4枚目：もっとも伝えたい約束事）
+   ============================================================ */
+
+.value-note {
+  font-family: var(--font-sans);
+  font-size: 21px;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  white-space: pre-line;
+  margin: 0;
+}
+
+/* ============================================================
+   募集条件リスト（投稿③4枚目）
+   ============================================================ */
+
+.check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 40px;
+  font-family: var(--font-sans);
+  font-size: 25px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.check-list li + li {
+  margin-top: 20px;
+}
+
+.check-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--line-gold);
+  border-radius: 50%;
+}
+
+.check-list li::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line-gold);
+}
+
+/* DM訴求の強調ピル（投稿③4枚目のメインCTA） */
+
+.dm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 48px;
+  background: var(--navy);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  box-shadow: 0 16px 32px rgba(38, 52, 73, 0.22);
+}
+
+.dm-pill::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-vermillion);
+}

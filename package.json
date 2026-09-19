@@ -1,0 +1,14 @@
+{
+  "name": "jinja-instagram",
+  "private": true,
+  "version": "1.0.0",
+  "description": "神社アプリ Instagram カルーセル投稿画像の制作用プロジェクト",
+  "scripts": {
+    "export": "node scripts/export-to-png.js",
+    "check": "node scripts/check-slides.js",
+    "fetch-screenshots": "node scripts/fetch-app-screenshots.js && node scripts/fetch-more-screenshots.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}
