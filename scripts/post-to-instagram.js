@@ -110,7 +110,7 @@ async function waitUntilFinished(containerId, accessToken) {
 }
 
 async function graphPost(edge, params) {
-  const url = `https://graph.facebook.com/${GRAPH_API_VERSION}/${edge}`;
+  const url = `https://graph.instagram.com/${GRAPH_API_VERSION}/${edge}`;
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -122,7 +122,7 @@ async function graphPost(edge, params) {
 }
 
 async function graphGet(nodeId, params) {
-  const url = `https://graph.facebook.com/${GRAPH_API_VERSION}/${nodeId}?${new URLSearchParams(params).toString()}`;
+  const url = `https://graph.instagram.com/${GRAPH_API_VERSION}/${nodeId}?${new URLSearchParams(params).toString()}`;
   const res = await fetch(url);
   const json = await res.json();
   if (!res.ok) throw new Error(`Graph API エラー (${nodeId}): ${JSON.stringify(json)}`);

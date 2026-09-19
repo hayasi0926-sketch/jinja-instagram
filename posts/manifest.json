@@ -2,60 +2,195 @@
   "_comment": "投稿の状態管理ファイル。scripts/post-to-instagram.js が読み書きします。status: posted=投稿済み / ready=画像・キャプションとも準備済み・未投稿 / queued=まだ画像もキャプションも未生成（トピックのみ決定）。",
   "instagramBusinessAccountEnvVar": "IG_BUSINESS_ACCOUNT_ID",
   "posts": [
-    { "id": 1, "exportFolder": "post1", "folder": "post1_hokkaido-shrines", "type": "region", "topic": "北海道の神社、何社知っていますか？", "status": "posted" },
-    { "id": 2, "exportFolder": "post2", "folder": "post2_goshuin", "type": "story", "topic": "こんな電子御朱印を作りたい。", "status": "posted" },
-    { "id": 3, "exportFolder": "post3", "folder": "post3_boshu", "type": "boshu", "topic": "北海道の神社様へ。", "status": "posted" },
-    { "id": 4, "exportFolder": "post4", "folder": "post4_tokyo-shrines", "type": "region", "topic": "東京都の神社、何社知っていますか？", "status": "posted" },
-    { "id": 5, "exportFolder": "post5", "folder": "post5_kyoto-shrines", "type": "region", "topic": "京都府の神社、何社知っていますか？", "status": "posted" },
     {
-      "id": 6, "exportFolder": "post6", "folder": "post6_osaka-shrines", "type": "region", "topic": "大阪府の神社、何社知っていますか？", "status": "ready",
-      "caption": "大阪府には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「住吉大社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
-      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #大阪神社 #住吉大社 #大阪観光 #大阪お出かけ #大阪神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #osaka"
+      "id": 1,
+      "exportFolder": "post1",
+      "folder": "post1_hokkaido-shrines",
+      "type": "region",
+      "topic": "北海道の神社、何社知っていますか？",
+      "status": "posted"
     },
     {
-      "id": 7, "exportFolder": "post7", "folder": "post7_fukuoka-shrines", "type": "region", "topic": "福岡県の神社、何社知っていますか？", "status": "ready",
+      "id": 2,
+      "exportFolder": "post2",
+      "folder": "post2_goshuin",
+      "type": "story",
+      "topic": "こんな電子御朱印を作りたい。",
+      "status": "posted"
+    },
+    {
+      "id": 3,
+      "exportFolder": "post3",
+      "folder": "post3_boshu",
+      "type": "boshu",
+      "topic": "北海道の神社様へ。",
+      "status": "posted"
+    },
+    {
+      "id": 4,
+      "exportFolder": "post4",
+      "folder": "post4_tokyo-shrines",
+      "type": "region",
+      "topic": "東京都の神社、何社知っていますか？",
+      "status": "posted"
+    },
+    {
+      "id": 5,
+      "exportFolder": "post5",
+      "folder": "post5_kyoto-shrines",
+      "type": "region",
+      "topic": "京都府の神社、何社知っていますか？",
+      "status": "posted"
+    },
+    {
+      "id": 6,
+      "exportFolder": "post6",
+      "folder": "post6_osaka-shrines",
+      "type": "region",
+      "topic": "大阪府の神社、何社知っていますか？",
+      "status": "posted",
+      "caption": "大阪府には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「住吉大社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #大阪神社 #住吉大社 #大阪観光 #大阪お出かけ #大阪神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #osaka",
+      "postedAt": "2026-09-19T10:51:25.838Z",
+      "instagramMediaId": "17891591070433969"
+    },
+    {
+      "id": 7,
+      "exportFolder": "post7",
+      "folder": "post7_fukuoka-shrines",
+      "type": "region",
+      "topic": "福岡県の神社、何社知っていますか？",
+      "status": "ready",
       "caption": "福岡県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「太宰府天満宮」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
       "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #福岡神社 #太宰府天満宮 #太宰府 #福岡観光 #福岡お出かけ #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #fukuoka"
     },
     {
-      "id": 8, "exportFolder": "post8", "folder": "post8_favorites", "type": "feature", "topic": "気になる神社を、♡で残せます。", "status": "ready",
+      "id": 8,
+      "exportFolder": "post8",
+      "folder": "post8_favorites",
+      "type": "feature",
+      "topic": "気になる神社を、♡で残せます。",
+      "status": "ready",
       "caption": "気になる神社を、♡で残せます。\n\n神社詳細ページの右上にある♡マークをタップするだけ。\n「あとで行きたい」と思った神社を、そのまま保存できます。\n\n保存した神社は、マイページでいつでも見返せます。\n気になる神社を、そっと集めておいてください。",
       "hashtags": "#神社 #神社めぐり #御朱印 #御朱印巡り #御朱印帳 #お気に入り #アプリの使い方 #神社アプリ #JinjaApp #神社好き #パワースポット #国内旅行 #shrine #japan"
     },
     {
-      "id": 9, "exportFolder": "post9", "folder": "post9_omikuji", "type": "feature", "topic": "参拝のあとに、ちょっと楽しみを。", "status": "ready",
+      "id": 9,
+      "exportFolder": "post9",
+      "folder": "post9_omikuji",
+      "type": "feature",
+      "topic": "参拝のあとに、ちょっと楽しみを。",
+      "status": "ready",
       "caption": "参拝のあとに、ちょっと楽しみを。\n\n神社の近くまで行くと、1日1回、無料でおみくじが引けます。\n現地にいなくても、ポイントを使って引く方法もあります。\n\n参拝の記録に、小さな楽しみを添えて。",
       "hashtags": "#神社 #神社めぐり #御朱印 #御朱印巡り #御朱印帳 #おみくじ #アプリの使い方 #神社アプリ #JinjaApp #神社好き #パワースポット #国内旅行 #shrine #japan"
     },
     {
-      "id": 10, "exportFolder": "post10", "folder": "post10_mypage", "type": "feature", "topic": "参拝した神社を、記録に残す。", "status": "ready",
+      "id": 10,
+      "exportFolder": "post10",
+      "folder": "post10_mypage",
+      "type": "feature",
+      "topic": "参拝した神社を、記録に残す。",
+      "status": "ready",
       "caption": "参拝した神社を、記録に残す。\n\n「参拝する」を押した神社は、マイページに記録されていきます。\n御朱印帳・参拝履歴・お気に入りを、ひとつの場所でまとめて確認できます。\n\nログインすると、記録をはじめられます。\n神社めぐりの記録を、アプリの中に。",
       "hashtags": "#神社 #神社めぐり #御朱印 #御朱印巡り #御朱印帳 #参拝記録 #マイページ #アプリの使い方 #神社アプリ #JinjaApp #神社好き #パワースポット #国内旅行 #shrine #japan"
     },
     {
-      "id": 11, "exportFolder": "post11", "folder": "post11_tokyo-boshu", "type": "boshu", "topic": "東京都の神社様へ。", "status": "ready",
+      "id": 11,
+      "exportFolder": "post11",
+      "folder": "post11_tokyo-boshu",
+      "type": "boshu",
+      "topic": "東京都の神社様へ。",
+      "status": "ready",
       "caption": "東京都の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
       "hashtags": "#神社 #神社様 #東京神社 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり"
     },
     {
-      "id": 12, "exportFolder": "post12", "folder": "post12_kansai-boshu", "type": "boshu", "topic": "京都・大阪の神社様へ。", "status": "ready",
+      "id": 12,
+      "exportFolder": "post12",
+      "folder": "post12_kansai-boshu",
+      "type": "boshu",
+      "topic": "京都・大阪の神社様へ。",
+      "status": "ready",
       "caption": "京都・大阪の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
       "hashtags": "#神社 #神社様 #京都神社 #大阪神社 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり"
     },
     {
-      "id": 13, "exportFolder": "post13", "folder": "post13_nationwide-boshu", "type": "boshu", "topic": "全国の神社様へ。", "status": "ready",
+      "id": 13,
+      "exportFolder": "post13",
+      "folder": "post13_nationwide-boshu",
+      "type": "boshu",
+      "topic": "全国の神社様へ。",
+      "status": "ready",
       "caption": "全国の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
       "hashtags": "#神社 #神社様 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり #全国"
     },
     {
-      "id": 14, "exportFolder": "post14", "folder": "post14_aichi-shrines", "type": "region", "topic": "愛知県の神社、何社知っていますか？", "status": "ready",
+      "id": 14,
+      "exportFolder": "post14",
+      "folder": "post14_aichi-shrines",
+      "type": "region",
+      "topic": "愛知県の神社、何社知っていますか？",
+      "status": "ready",
       "caption": "愛知県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「名古屋東照宮」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
       "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #愛知神社 #名古屋東照宮 #愛知観光 #愛知お出かけ #愛知神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #aichi"
     },
-    { "id": 15, "type": "region", "topic": "神奈川県の神社、何社知っていますか？", "status": "queued", "queueHint": { "prefecture": "神奈川県", "prefectureTag": "kanagawa" } },
-    { "id": 16, "type": "region", "topic": "兵庫県の神社、何社知っていますか？", "status": "queued", "queueHint": { "prefecture": "兵庫県", "prefectureTag": "hyogo" } },
-    { "id": 17, "type": "boshu", "topic": "愛知・神奈川・兵庫の神社様へ。", "status": "queued", "queueHint": { "regions": ["愛知", "神奈川", "兵庫"], "referencePosts": [14, 15, 16] } },
-    { "id": 18, "type": "region", "topic": "宮城県の神社、何社知っていますか？", "status": "queued", "queueHint": { "prefecture": "宮城県", "prefectureTag": "miyagi" } },
-    { "id": 19, "type": "region", "topic": "広島県の神社、何社知っていますか？", "status": "queued", "queueHint": { "prefecture": "広島県", "prefectureTag": "hiroshima" } }
+    {
+      "id": 15,
+      "type": "region",
+      "topic": "神奈川県の神社、何社知っていますか？",
+      "status": "queued",
+      "queueHint": {
+        "prefecture": "神奈川県",
+        "prefectureTag": "kanagawa"
+      }
+    },
+    {
+      "id": 16,
+      "type": "region",
+      "topic": "兵庫県の神社、何社知っていますか？",
+      "status": "queued",
+      "queueHint": {
+        "prefecture": "兵庫県",
+        "prefectureTag": "hyogo"
+      }
+    },
+    {
+      "id": 17,
+      "type": "boshu",
+      "topic": "愛知・神奈川・兵庫の神社様へ。",
+      "status": "queued",
+      "queueHint": {
+        "regions": [
+          "愛知",
+          "神奈川",
+          "兵庫"
+        ],
+        "referencePosts": [
+          14,
+          15,
+          16
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "type": "region",
+      "topic": "宮城県の神社、何社知っていますか？",
+      "status": "queued",
+      "queueHint": {
+        "prefecture": "宮城県",
+        "prefectureTag": "miyagi"
+      }
+    },
+    {
+      "id": 19,
+      "type": "region",
+      "topic": "広島県の神社、何社知っていますか？",
+      "status": "queued",
+      "queueHint": {
+        "prefecture": "広島県",
+        "prefectureTag": "hiroshima"
+      }
+    }
   ]
 }
