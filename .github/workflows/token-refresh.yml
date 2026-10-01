@@ -1,0 +1,31 @@
+# 毎月2日 3:00 (JST) に Instagram の長期トークン（60日有効）を更新し、
+# 新しいトークンで Secrets の IG_ACCESS_TOKEN を上書きする。
+# 必要な Secrets: IG_ACCESS_TOKEN, GH_PAT（このリポジトリの Secrets: Read and write 権限を持つ fine-grained token）
+name: Refresh Instagram token
+
+on:
+  schedule:
+    - cron: '0 18 1 * *' # 毎月1日 18:00 UTC = 2日 3:00 JST
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Refresh token
+        id: refresh
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node scripts/refresh-instagram-token.js
+
+      - name: Update IG_ACCESS_TOKEN secret
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          NEW_TOKEN: ${{ steps.refresh.outputs.token }}
+        run: gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body "$NEW_TOKEN"

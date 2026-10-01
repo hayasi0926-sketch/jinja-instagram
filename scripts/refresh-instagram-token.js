@@ -29,6 +29,14 @@ async function main() {
 
   console.log(`更新に成功しました。有効期限: 約${Math.round(json.expires_in / 86400)}日後`);
 
+  // GitHub Actions 上では .env が無いので、ログに出ないようマスクしてステップ出力に渡す
+  if (process.env.GITHUB_OUTPUT) {
+    console.log(`::add-mask::${json.access_token}`);
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `token=${json.access_token}\n`);
+    console.log('新しいトークンをステップ出力に書き出しました。');
+    return;
+  }
+
   const envContent = fs.readFileSync(ENV_PATH, 'utf8');
   const updated = envContent.replace(/^IG_ACCESS_TOKEN=.*$/m, `IG_ACCESS_TOKEN=${json.access_token}`);
   fs.writeFileSync(ENV_PATH, updated);
