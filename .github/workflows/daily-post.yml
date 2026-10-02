@@ -1,6 +1,6 @@
 # 毎日 21:00 (JST) に posts/manifest.json の次の "ready" 投稿を Instagram に公開し、
 # 更新した manifest.json をコミットする。PC の電源が切れていても GitHub 上で動く。
-# 必要な Secrets: IG_ACCESS_TOKEN, IG_BUSINESS_ACCOUNT_ID, GITHUB_RAW_BASE
+# 必要な Secrets: IG_ACCESS_TOKEN（IG_BUSINESS_ACCOUNT_ID, GITHUB_RAW_BASE は任意）
 name: Daily Instagram post
 
 on:
@@ -28,8 +28,9 @@ jobs:
       - name: Post to Instagram
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID }}
-          GITHUB_RAW_BASE: ${{ secrets.GITHUB_RAW_BASE }}
+          # 以下2つは秘密情報ではないので、Secrets が無ければ既定値を使う
+          IG_BUSINESS_ACCOUNT_ID: ${{ secrets.IG_BUSINESS_ACCOUNT_ID || '29350946021252606' }}
+          GITHUB_RAW_BASE: ${{ secrets.GITHUB_RAW_BASE || format('https://raw.githubusercontent.com/{0}/main', github.repository) }}
         run: node scripts/post-to-instagram.js
 
       - name: Commit manifest
