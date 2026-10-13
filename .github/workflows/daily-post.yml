@@ -6,6 +6,8 @@ name: Daily Instagram post
 on:
   schedule:
     - cron: '0 12 * * *' # 12:00 UTC = 21:00 JST（混雑時は数十分遅れることがある）
+    # 予備の回：本番(21時)が GitHub 側の障害で動かなかった日だけ投稿する（下の Skip check を参照）
+    - cron: '0 18 * * *' # 18:00 UTC = 翌3:00 JST
   workflow_dispatch:
 
 permissions:
@@ -25,7 +27,22 @@ jobs:
         with:
           node-version: 22
 
+      # 予備の回(18:00 UTC)は、直近12時間以内に投稿済みなら何もしない。
+      # 10/5 は GitHub 側の障害（The job was not acquired by Runner）で本番の回が失敗したため追加。
+      - name: Skip check (backup run only)
+        id: guard
+        if: github.event.schedule == '0 18 * * *'
+        run: |
+          node -e '
+            const m = require("./posts/manifest.json");
+            const last = Math.max(0, ...m.posts.filter(p => p.postedAt).map(p => Date.parse(p.postedAt)));
+            const hours = (Date.now() - last) / 36e5;
+            console.log("前回の投稿から " + hours.toFixed(1) + " 時間");
+            require("fs").appendFileSync(process.env.GITHUB_OUTPUT, "skip=" + (hours < 12) + "\n");
+          '
+
       - name: Post to Instagram
+        if: steps.guard.outputs.skip != 'true'
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           # 以下2つは秘密情報ではないので、Secrets が無ければ既定値を使う
