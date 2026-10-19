@@ -1,17 +1,20 @@
-# 毎日 21:00 (JST) に posts/manifest.json の次の "ready" 投稿を Instagram に公開し、
+# 毎日夜に posts/manifest.json の次の "ready" 投稿を Instagram に公開し、
 # 更新した manifest.json をコミットする。PC の電源が切れていても GitHub 上で動く。
 # 必要な Secrets: IG_ACCESS_TOKEN（IG_BUSINESS_ACCOUNT_ID, GITHUB_RAW_BASE は任意）
 name: Daily Instagram post
 
 on:
   schedule:
-    - cron: '0 12 * * *' # 12:00 UTC = 21:00 JST（混雑時は数十分遅れることがある）
-    # 予備の回：本番(21時)が GitHub 側の障害で動かなかった日だけ投稿する（下の Skip check を参照）
-    - cron: '0 18 * * *' # 18:00 UTC = 翌3:00 JST
+    # GitHub の定期実行は毎回3〜6時間遅れていた（10月の実績）ので、早めの時刻に設定している。
+    # 毎時0分は特に混むので半端な分にしている。
+    - cron: '17 8 * * *' # 8:17 UTC = 17:17 JST（実際は20〜23時ごろに動く想定）
+    # 予備の回：本番が GitHub 側の障害で動かなかった日だけ投稿する（下の Skip check を参照）
+    - cron: '47 14 * * *' # 14:47 UTC = 23:47 JST
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: instagram-post
@@ -27,11 +30,11 @@ jobs:
         with:
           node-version: 22
 
-      # 予備の回(18:00 UTC)は、直近12時間以内に投稿済みなら何もしない。
+      # 予備の回は、直近12時間以内に投稿済みなら何もしない。
       # 10/5 は GitHub 側の障害（The job was not acquired by Runner）で本番の回が失敗したため追加。
       - name: Skip check (backup run only)
         id: guard
-        if: github.event.schedule == '0 18 * * *'
+        if: github.event.schedule == '47 14 * * *'
         run: |
           node -e '
             const m = require("./posts/manifest.json");
@@ -62,3 +65,23 @@ jobs:
           git commit -m "Mark post as posted (GitHub Actions)"
           git pull --rebase
           git push
+
+      # 投稿できる "ready" の在庫が残り少なくなったら Issue を立てて知らせる（GitHub からメールが届く）。
+      # 10/9〜13 と 10/17〜 に在庫切れで投稿が止まったため追加。
+      - name: Low stock alert
+        env:
+          GH_TOKEN: ${{ github.token }}
+          THRESHOLD: 5
+        run: |
+          ready=$(node -e 'console.log(require("./posts/manifest.json").posts.filter(p => p.status === "ready").length)')
+          echo "ready の在庫: ${ready} 件"
+          if [ "$ready" -gt "$THRESHOLD" ]; then exit 0; fi
+          title="投稿の在庫が残り少なくなっています"
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "in:title ${title}" --json number --jq 'length')
+          body="posts/manifest.json の status:\"ready\" の投稿が残り ${ready} 件です。0 件になると毎日の自動投稿が止まります。新しい投稿を準備してください。"
+          if [ "$existing" = "0" ]; then
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+          else
+            num=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "in:title ${title}" --json number --jq '.[0].number')
+            gh issue comment "$num" --repo "$GITHUB_REPOSITORY" --body "$body"
+          fi

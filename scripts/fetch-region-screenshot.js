@@ -52,7 +52,13 @@ async function main() {
   await searchInput.type(name, { delay: 30 });
   await sleep(1200);
   await waitForImages(page);
-  const cardRect = await page.evaluate((shrineName) => {
+  const cardRect = await page.evaluate((shrineName, shrinePath) => {
+    // 同名の神社が他県にもあるので、まず詳細URLと同じリンク先のカードを探す
+    const link = document.querySelector(`a[href="${shrinePath}"]`);
+    if (link) {
+      const r = link.getBoundingClientRect();
+      return { top: r.top, bottom: r.bottom };
+    }
     const nameEl = Array.from(document.querySelectorAll('h3')).find((el) =>
       el.textContent.includes(shrineName.slice(0, 4))
     );
@@ -64,7 +70,7 @@ async function main() {
     if (!card) return null;
     const r = card.getBoundingClientRect();
     return { top: r.top, bottom: r.bottom };
-  }, name);
+  }, name, new URL(url).pathname);
   if (cardRect) {
     const top = Math.max(0, cardRect.top - 8);
     const height = Math.min(300, cardRect.bottom - cardRect.top + 16);
@@ -78,6 +84,10 @@ async function main() {
   await page.goto(url, { waitUntil: 'networkidle0' });
   await sleep(800);
   await waitForImages(page);
+  const broken = await page.evaluate(() =>
+    Array.from(document.images).filter((img) => img.getBoundingClientRect().top < 580 && !img.naturalWidth).length
+  );
+  if (broken) console.warn(`  [警告] 神社詳細で読み込めていない画像が ${broken} 枚あります（写真が表示されていない可能性）`);
   const detailShot = await page.screenshot({ clip: { x: 0, y: 0, width: 430, height: 580 } });
   await save(detailShot, folder, 'slide4-detail.jpg');
 
