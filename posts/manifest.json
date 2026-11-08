@@ -421,6 +421,148 @@
       },
       "postedAt": "2026-10-31T14:31:51.623Z",
       "instagramMediaId": "18132344543499569"
+    },
+    {
+      "id": 30,
+      "exportFolder": "post30",
+      "folder": "post30_ishikawa-shrines",
+      "type": "region",
+      "topic": "石川県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "石川県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「気多大社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #石川神社 #気多大社 #石川観光 #石川お出かけ #石川神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #ishikawa",
+      "queueHint": {
+        "prefecture": "石川県",
+        "prefectureTag": "ishikawa"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/dc569e28-fc3b-43f3-b74a-3d337026b0cd"
+    },
+    {
+      "id": 31,
+      "exportFolder": "post31",
+      "folder": "post31_toyama-shrines",
+      "type": "region",
+      "topic": "富山県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "富山県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「雄山神社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #富山神社 #雄山神社 #富山観光 #富山お出かけ #富山神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #toyama",
+      "queueHint": {
+        "prefecture": "富山県",
+        "prefectureTag": "toyama"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/b16c198c-8eab-4aa1-baee-644f3a14e824"
+    },
+    {
+      "id": 32,
+      "exportFolder": "post32",
+      "folder": "post32_fukui-shrines",
+      "type": "region",
+      "topic": "福井県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "福井県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「氣比神宮」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #福井神社 #氣比神宮 #福井観光 #福井お出かけ #福井神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #fukui",
+      "queueHint": {
+        "prefecture": "福井県",
+        "prefectureTag": "fukui"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/0f07f235-8ab1-40de-bd8b-b2246fc1d0e6"
+    },
+    {
+      "id": 33,
+      "exportFolder": "post33",
+      "folder": "post33_ishikawa-toyama-fukui-boshu",
+      "type": "boshu",
+      "topic": "石川・富山・福井の神社様へ。",
+      "status": "ready",
+      "caption": "石川・富山・福井の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
+      "hashtags": "#神社 #神社様 #石川神社 #富山神社 #福井神社 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり",
+      "queueHint": {
+        "regions": [
+          "石川",
+          "富山",
+          "福井"
+        ],
+        "referencePosts": [
+          30,
+          31,
+          32
+        ]
+      },
+      "autoCreated": true
+    },
+    {
+      "id": 34,
+      "exportFolder": "post34",
+      "folder": "post34_gifu-shrines",
+      "type": "region",
+      "topic": "岐阜県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "岐阜県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「南宮大社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #岐阜神社 #南宮大社 #岐阜観光 #岐阜お出かけ #岐阜神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #gifu",
+      "queueHint": {
+        "prefecture": "岐阜県",
+        "prefectureTag": "gifu"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/6255ee74-a8f0-439a-9aab-2b159be5ce13"
+    },
+    {
+      "id": 35,
+      "exportFolder": "post35",
+      "folder": "post35_yamanashi-shrines",
+      "type": "region",
+      "topic": "山梨県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "山梨県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「北口本宮冨士浅間神社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #山梨神社 #北口本宮冨士浅間神社 #山梨観光 #山梨お出かけ #山梨神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #yamanashi",
+      "queueHint": {
+        "prefecture": "山梨県",
+        "prefectureTag": "yamanashi"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/f9008089-0fff-4f98-980b-4ba1734c212b"
+    },
+    {
+      "id": 36,
+      "exportFolder": "post36",
+      "folder": "post36_shiga-shrines",
+      "type": "region",
+      "topic": "滋賀県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "滋賀県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「多賀大社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #滋賀神社 #多賀大社 #滋賀観光 #滋賀お出かけ #滋賀神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #shiga",
+      "queueHint": {
+        "prefecture": "滋賀県",
+        "prefectureTag": "shiga"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/6d828245-4032-472f-8f7e-7a9cfca2b579"
+    },
+    {
+      "id": 37,
+      "exportFolder": "post37",
+      "folder": "post37_gifu-yamanashi-shiga-boshu",
+      "type": "boshu",
+      "topic": "岐阜・山梨・滋賀の神社様へ。",
+      "status": "ready",
+      "caption": "岐阜・山梨・滋賀の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
+      "hashtags": "#神社 #神社様 #岐阜神社 #山梨神社 #滋賀神社 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり",
+      "queueHint": {
+        "regions": [
+          "岐阜",
+          "山梨",
+          "滋賀"
+        ],
+        "referencePosts": [
+          34,
+          35,
+          36
+        ]
+      },
+      "autoCreated": true
     }
   ]
 }
