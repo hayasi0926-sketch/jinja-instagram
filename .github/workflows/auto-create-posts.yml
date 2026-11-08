@@ -1,0 +1,83 @@
+# 投稿の在庫（status:"ready"）が 8 件を切ったら、次の地域の投稿を自動で作ってコミットする。
+# 作り方は scripts/auto-create-posts.js、作る順番は scripts/auto-plan.json。
+# 毎日の投稿（daily-post.yml）より前の昼に動くので、在庫切れで投稿が止まることがない。
+# 作れなかったときは Issue を立てて知らせる（GitHub からメールが届く）。
+name: Auto create posts
+
+on:
+  schedule:
+    - cron: '23 3 * * *' # 3:23 UTC = 12:23 JST
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '在庫に関係なく1組（4投稿）作る'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: instagram-post
+  cancel-in-progress: false
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check stock
+        id: stock
+        run: |
+          ready=$(node -e 'console.log(require("./posts/manifest.json").posts.filter(p => p.status === "ready").length)')
+          echo "ready の在庫: ${ready} 件"
+          if [ "$ready" -ge 8 ] && [ "${{ inputs.force }}" != "true" ]; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install
+        if: steps.stock.outputs.needed == 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
+          npm ci
+
+      - name: Create posts
+        id: create
+        if: steps.stock.outputs.needed == 'true'
+        run: node scripts/auto-create-posts.js ${{ inputs.force && '--force' || '' }}
+
+      - name: Commit
+        if: steps.stock.outputs.needed == 'true'
+        run: |
+          git add posts assets export
+          if git diff --cached --quiet; then
+            echo "変更なし"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Auto-create posts (GitHub Actions)"
+          git pull --rebase
+          git push
+
+      - name: Alert on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="投稿の自動作成に失敗しました"
+          body="投稿の自動作成（Auto create posts）が失敗しました。実行ログ: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "in:title ${title}" --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+          else
+            gh issue comment "$existing" --repo "$GITHUB_REPOSITORY" --body "$body"
+          fi

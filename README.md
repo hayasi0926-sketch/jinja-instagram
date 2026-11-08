@@ -145,3 +145,15 @@ npm run export
 
 `export/post1/` 〜 `export/post13/` に、各投稿4枚ずつ
 1080×1350px の PNG が書き出されます（そのままInstagramに投稿できるサイズ）。
+
+## 7. 投稿の自動作成（GitHub Actions）
+
+`.github/workflows/auto-create-posts.yml` が毎日お昼（12:23 JST ごろ）に在庫を確認し、
+`status:"ready"` が 8 件を切っていたら、次の地域の投稿を自動で作ってコミットします。
+
+- 1組 = 3県の地域紹介 ＋ その3県の神社様募集 ＝ 4投稿（㉖〜㉙ と同じ形）
+- 作る順番と、検索に使う神社名の候補は `scripts/auto-plan.json`。並べ替えや追加はここを編集するだけ
+- 実際のアプリで神社名を検索し、その県のもので写真が表示される最初の神社の画面を撮影する。見つからない県がある組は飛ばす
+- スライドの雛形は `templates/region/`・`templates/boshu/`。文章は `scripts/auto-create-posts.js` 内の雛形
+- 文字のはみ出し・画像切れ・空欄をチェックし、問題があればその組は作らない。失敗したときは Issue で知らせる
+- 手動で1組作りたいときは、Actions の「Auto create posts」で「在庫に関係なく1組作る」にチェックして実行
