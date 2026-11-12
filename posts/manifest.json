@@ -507,7 +507,7 @@
       "folder": "post34_gifu-shrines",
       "type": "region",
       "topic": "岐阜県の神社、何社知っていますか？",
-      "status": "ready",
+      "status": "posted",
       "caption": "岐阜県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「南宮大社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
       "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #岐阜神社 #南宮大社 #岐阜観光 #岐阜お出かけ #岐阜神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #gifu",
       "queueHint": {
@@ -515,7 +515,9 @@
         "prefectureTag": "gifu"
       },
       "autoCreated": true,
-      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/6255ee74-a8f0-439a-9aab-2b159be5ce13"
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/6255ee74-a8f0-439a-9aab-2b159be5ce13",
+      "postedAt": "2026-11-12T16:46:58.760Z",
+      "instagramMediaId": "17892425793618717"
     },
     {
       "id": 35,
