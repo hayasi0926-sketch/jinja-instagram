@@ -644,6 +644,77 @@
         ]
       },
       "autoCreated": true
+    },
+    {
+      "id": 42,
+      "exportFolder": "post42",
+      "folder": "post42_kumamoto-shrines",
+      "type": "region",
+      "topic": "熊本県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "熊本県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「阿蘇神社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #熊本神社 #阿蘇神社 #熊本観光 #熊本お出かけ #熊本神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #kumamoto",
+      "queueHint": {
+        "prefecture": "熊本県",
+        "prefectureTag": "kumamoto"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/0818570a-3c3e-4298-800b-9a1424439b30"
+    },
+    {
+      "id": 43,
+      "exportFolder": "post43",
+      "folder": "post43_kagoshima-shrines",
+      "type": "region",
+      "topic": "鹿児島県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "鹿児島県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「霧島神宮」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #鹿児島神社 #霧島神宮 #鹿児島観光 #鹿児島お出かけ #鹿児島神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #kagoshima",
+      "queueHint": {
+        "prefecture": "鹿児島県",
+        "prefectureTag": "kagoshima"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/32b689a6-8b48-452c-afa0-f61029f1d55f"
+    },
+    {
+      "id": 44,
+      "exportFolder": "post44",
+      "folder": "post44_miyazaki-shrines",
+      "type": "region",
+      "topic": "宮崎県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "宮崎県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「高千穂神社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #宮崎神社 #高千穂神社 #宮崎観光 #宮崎お出かけ #宮崎神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #miyazaki",
+      "queueHint": {
+        "prefecture": "宮崎県",
+        "prefectureTag": "miyazaki"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/d8492b43-d01c-4a4b-9ec8-1c246b7d33e8"
+    },
+    {
+      "id": 45,
+      "exportFolder": "post45",
+      "folder": "post45_kumamoto-kagoshima-miyazaki-boshu",
+      "type": "boshu",
+      "topic": "熊本・鹿児島・宮崎の神社様へ。",
+      "status": "ready",
+      "caption": "熊本・鹿児島・宮崎の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
+      "hashtags": "#神社 #神社様 #熊本神社 #鹿児島神社 #宮崎神社 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり",
+      "queueHint": {
+        "regions": [
+          "熊本",
+          "鹿児島",
+          "宮崎"
+        ],
+        "referencePosts": [
+          42,
+          43,
+          44
+        ]
+      },
+      "autoCreated": true
     }
   ]
 }
