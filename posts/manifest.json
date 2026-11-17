@@ -723,6 +723,77 @@
         ]
       },
       "autoCreated": true
+    },
+    {
+      "id": 46,
+      "exportFolder": "post46",
+      "folder": "post46_oita-shrines",
+      "type": "region",
+      "topic": "大分県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "大分県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「宇佐神宮」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #大分神社 #宇佐神宮 #大分観光 #大分お出かけ #大分神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #oita",
+      "queueHint": {
+        "prefecture": "大分県",
+        "prefectureTag": "oita"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/8501eb72-a26b-46fb-9520-b8c5c4a939bc"
+    },
+    {
+      "id": 47,
+      "exportFolder": "post47",
+      "folder": "post47_nagasaki-shrines",
+      "type": "region",
+      "topic": "長崎県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "長崎県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「淵神社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #長崎神社 #淵神社 #長崎観光 #長崎お出かけ #長崎神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #nagasaki",
+      "queueHint": {
+        "prefecture": "長崎県",
+        "prefectureTag": "nagasaki"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/c5abfa4c-e0e1-4fb8-851b-b06f27e187d4"
+    },
+    {
+      "id": 48,
+      "exportFolder": "post48",
+      "folder": "post48_saga-shrines",
+      "type": "region",
+      "topic": "佐賀県の神社、何社知っていますか？",
+      "status": "ready",
+      "caption": "佐賀県には、まだ知らない神社があるかもしれません。\n\n地図を開いて、気になる神社を探してみませんか。\n名前からでも、地図からでも、気になる神社を見つけられます。\n\n今回の画面は、実際に「與止日女神社」で検索した様子です。\n気になる神社と出会えたら、保存しておいてくださいね。",
+      "hashtags": "#神社 #神社めぐり #神社巡り #御朱印 #御朱印巡り #御朱印帳 #佐賀神社 #與止日女神社 #佐賀観光 #佐賀お出かけ #佐賀神社めぐり #パワースポット #国内旅行 #お出かけスポット #神社アプリ #JinjaApp #shrine #japan #saga",
+      "queueHint": {
+        "prefecture": "佐賀県",
+        "prefectureTag": "saga"
+      },
+      "autoCreated": true,
+      "shrineUrl": "https://shrine-map-zeta.vercel.app/shrines/c8fe3fd8-fbef-47e2-be8b-f8456ae67dfb"
+    },
+    {
+      "id": 49,
+      "exportFolder": "post49",
+      "folder": "post49_oita-nagasaki-saga-boshu",
+      "type": "boshu",
+      "topic": "大分・長崎・佐賀の神社様へ。",
+      "status": "ready",
+      "caption": "大分・長崎・佐賀の神社様へ。\n\n神社の情報を、参拝者にもっと届けませんか。\n地図で見つけてもらい、訪れてもらい、参拝の記録を残してもらう。\n掲載後の情報は、神社様と一緒に育てていきます。\n\n・電子御朱印に興味がある\n・アプリへの掲載について聞きたい\n・新しい参拝者との接点を作りたい\n\nそんな神社様は、お気軽にDMください。\n新しい神社めぐりの形を、一緒に作っていけたら嬉しいです。",
+      "hashtags": "#神社 #神社様 #大分神社 #長崎神社 #佐賀神社 #電子御朱印 #御朱印 #神社関係者 #神社アプリ #JinjaApp #神社DX #パートナー募集 #社務所 #神社めぐり",
+      "queueHint": {
+        "regions": [
+          "大分",
+          "長崎",
+          "佐賀"
+        ],
+        "referencePosts": [
+          46,
+          47,
+          48
+        ]
+      },
+      "autoCreated": true
     }
   ]
 }
